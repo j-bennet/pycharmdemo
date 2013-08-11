@@ -3,9 +3,9 @@ Defines user's bank account and implements basic actions on it.
 """
 class Account(object):
 
-    def __init__(self, userid):
-        self.userid = userid
-        self.balance = 0
+    def __init__(self, balance=0, type="checking"):
+        self.type = type
+        self.balance = balance
 
     def deposit(self, amount):
         self.balance += amount
