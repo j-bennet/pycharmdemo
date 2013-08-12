@@ -1,6 +1,6 @@
 """
 This is the class we're going to use for our refactoring example.
-It contains a long jumble of spaghetti code to clean up.
+It contains spaghetti code to clean up.
 """
 
 class SuperAction(object):
@@ -8,13 +8,17 @@ class SuperAction(object):
         self.request = None
 
     def process(self, request):
-        if request.useraction == 'login':
+        if request.action == 'login':
             pass
-        elif request.useraction == 'logout':
+        elif request.action == 'logout':
             pass
-        elif request.useraction == 'show_accounts':
+        elif request.action == 'show_accounts':
             pass
-        elif request.useraction == 'make_transfer':
+        elif request.action == 'make_transfer':
+            pass
+        elif request.action == 'open_account':
+            pass
+        elif request.action == 'close_account':
             pass
 
 
