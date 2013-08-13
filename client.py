@@ -7,11 +7,11 @@ from account import Account
 
 class Client(object):
 
-    def __init__(self):
+    def __init__(self, accounts=None):
         """
         Create a new client.
         """
-        self.accounts = {}
+        self.accounts = accounts
 
     def open_account(self, account_type):
         """
