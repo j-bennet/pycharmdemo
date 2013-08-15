@@ -28,11 +28,7 @@ class SuperAction(object):
         if request.action == ACTION_LOGIN:
             self.response = self.login_client(request)
         elif request.action == ACTION_LOGOUT:
-            client_name = request.parameters['name']
-            if self.manager.logout(client_name):
-                self.response = self.response.create_login()
-            else:
-                self.response = Response(page=current_page)
+            self.response = self.logout_client(current_page, request)
         elif request.action == ACTION_ACCOUNTS:
             client_name = request.parameters['name']
             accounts = self.manager.get_accounts(name=client_name)
@@ -45,6 +41,14 @@ class SuperAction(object):
             pass
 
         return self.response
+
+    def logout_client(self, current_page, request):
+        client_name = request.parameters['name']
+        if self.manager.logout(client_name):
+            response = Response.create_login()
+        else:
+            response = Response(page=current_page)
+        return response
 
     def login_client(self, request):
         client_name = request.parameters['name']
